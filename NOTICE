@@ -1,0 +1,21 @@
+SpecQR-Python
+Copyright (c) 2026 SpecQR contributors
+MIT License; see LICENSE.
+
+This is a Python standard-library port of the SpecQR project's own algorithms,
+not a wrapper around or copied implementation of a third-party QR library.
+
+Primary source and normative behavioral baseline:
+SpecQR/SpecQR, 15ad15e5c770ea0e39072f8f88b2733018f02ffd (3.0.0-rc.2), MIT.
+https://github.com/SpecQR/SpecQR/tree/15ad15e5c770ea0e39072f8f88b2733018f02ffd
+
+Related SpecQR editions used for test and API auditing:
+SpecQR-CSharp 057c4b3f25e52c4786a8f94c744ff884eedcecfa, MIT.
+SpecQR-CPP e91cd8fe4434fd6ef10d1126bb2fd17b0b19321f, MIT.
+SpecQR-Conformance-Lab 72ad78c979327e3e261526ea3c0a164efa4ab390, MIT.
+
+QR capacity/ECC constants are factual format parameters. No specification text
+or third-party implementation is included in the production package.
+The Kanji map is derived at runtime from Python's standard-library cp932 codec.
+Independent Nayuki, jsQR, ZXing-C++ and ZXing Java tools are verification-only,
+separately installed under their own licenses and never runtime dependencies.

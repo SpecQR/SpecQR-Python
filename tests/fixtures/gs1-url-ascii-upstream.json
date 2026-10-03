@@ -1,0 +1,2055 @@
+{
+  "upstreamCommit": "15ad15e5c770ea0e39072f8f88b2733018f02ffd",
+  "operation": "normalizeGs1DigitalLink",
+  "description": "ASCII U+0000 through U+007F inserted between a and b in a path value, unknown query value, credentials, and hostname. null means INVALID_GS1. Generated directly with pinned upstream Node module; no QR implementation involved.",
+  "cases": [
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0000b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0000b",
+      "expected": "https://example.com/01/04912345678904?foo=a%00b"
+    },
+    {
+      "input": "https://a\u0000b@example.com/01/04912345678904",
+      "expected": "https://a%00b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0000b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0001b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0001b",
+      "expected": "https://example.com/01/04912345678904?foo=a%01b"
+    },
+    {
+      "input": "https://a\u0001b@example.com/01/04912345678904",
+      "expected": "https://a%01b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0001b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0002b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0002b",
+      "expected": "https://example.com/01/04912345678904?foo=a%02b"
+    },
+    {
+      "input": "https://a\u0002b@example.com/01/04912345678904",
+      "expected": "https://a%02b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0002b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0003b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0003b",
+      "expected": "https://example.com/01/04912345678904?foo=a%03b"
+    },
+    {
+      "input": "https://a\u0003b@example.com/01/04912345678904",
+      "expected": "https://a%03b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0003b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0004b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0004b",
+      "expected": "https://example.com/01/04912345678904?foo=a%04b"
+    },
+    {
+      "input": "https://a\u0004b@example.com/01/04912345678904",
+      "expected": "https://a%04b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0004b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0005b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0005b",
+      "expected": "https://example.com/01/04912345678904?foo=a%05b"
+    },
+    {
+      "input": "https://a\u0005b@example.com/01/04912345678904",
+      "expected": "https://a%05b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0005b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0006b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0006b",
+      "expected": "https://example.com/01/04912345678904?foo=a%06b"
+    },
+    {
+      "input": "https://a\u0006b@example.com/01/04912345678904",
+      "expected": "https://a%06b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0006b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0007b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0007b",
+      "expected": "https://example.com/01/04912345678904?foo=a%07b"
+    },
+    {
+      "input": "https://a\u0007b@example.com/01/04912345678904",
+      "expected": "https://a%07b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0007b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\bb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\bb",
+      "expected": "https://example.com/01/04912345678904?foo=a%08b"
+    },
+    {
+      "input": "https://a\bb@example.com/01/04912345678904",
+      "expected": "https://a%08b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\bb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\tb",
+      "expected": "https://example.com/01/04912345678904/10/ab"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\tb",
+      "expected": "https://example.com/01/04912345678904?foo=ab"
+    },
+    {
+      "input": "https://a\tb@example.com/01/04912345678904",
+      "expected": "https://ab@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\tb.com/01/04912345678904",
+      "expected": "https://ab.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\nb",
+      "expected": "https://example.com/01/04912345678904/10/ab"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\nb",
+      "expected": "https://example.com/01/04912345678904?foo=ab"
+    },
+    {
+      "input": "https://a\nb@example.com/01/04912345678904",
+      "expected": "https://ab@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\nb.com/01/04912345678904",
+      "expected": "https://ab.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u000bb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u000bb",
+      "expected": "https://example.com/01/04912345678904?foo=a%0Bb"
+    },
+    {
+      "input": "https://a\u000bb@example.com/01/04912345678904",
+      "expected": "https://a%0Bb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u000bb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\fb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\fb",
+      "expected": "https://example.com/01/04912345678904?foo=a%0Cb"
+    },
+    {
+      "input": "https://a\fb@example.com/01/04912345678904",
+      "expected": "https://a%0Cb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\fb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\rb",
+      "expected": "https://example.com/01/04912345678904/10/ab"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\rb",
+      "expected": "https://example.com/01/04912345678904?foo=ab"
+    },
+    {
+      "input": "https://a\rb@example.com/01/04912345678904",
+      "expected": "https://ab@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\rb.com/01/04912345678904",
+      "expected": "https://ab.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u000eb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u000eb",
+      "expected": "https://example.com/01/04912345678904?foo=a%0Eb"
+    },
+    {
+      "input": "https://a\u000eb@example.com/01/04912345678904",
+      "expected": "https://a%0Eb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u000eb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u000fb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u000fb",
+      "expected": "https://example.com/01/04912345678904?foo=a%0Fb"
+    },
+    {
+      "input": "https://a\u000fb@example.com/01/04912345678904",
+      "expected": "https://a%0Fb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u000fb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0010b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0010b",
+      "expected": "https://example.com/01/04912345678904?foo=a%10b"
+    },
+    {
+      "input": "https://a\u0010b@example.com/01/04912345678904",
+      "expected": "https://a%10b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0010b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0011b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0011b",
+      "expected": "https://example.com/01/04912345678904?foo=a%11b"
+    },
+    {
+      "input": "https://a\u0011b@example.com/01/04912345678904",
+      "expected": "https://a%11b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0011b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0012b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0012b",
+      "expected": "https://example.com/01/04912345678904?foo=a%12b"
+    },
+    {
+      "input": "https://a\u0012b@example.com/01/04912345678904",
+      "expected": "https://a%12b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0012b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0013b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0013b",
+      "expected": "https://example.com/01/04912345678904?foo=a%13b"
+    },
+    {
+      "input": "https://a\u0013b@example.com/01/04912345678904",
+      "expected": "https://a%13b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0013b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0014b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0014b",
+      "expected": "https://example.com/01/04912345678904?foo=a%14b"
+    },
+    {
+      "input": "https://a\u0014b@example.com/01/04912345678904",
+      "expected": "https://a%14b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0014b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0015b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0015b",
+      "expected": "https://example.com/01/04912345678904?foo=a%15b"
+    },
+    {
+      "input": "https://a\u0015b@example.com/01/04912345678904",
+      "expected": "https://a%15b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0015b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0016b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0016b",
+      "expected": "https://example.com/01/04912345678904?foo=a%16b"
+    },
+    {
+      "input": "https://a\u0016b@example.com/01/04912345678904",
+      "expected": "https://a%16b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0016b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0017b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0017b",
+      "expected": "https://example.com/01/04912345678904?foo=a%17b"
+    },
+    {
+      "input": "https://a\u0017b@example.com/01/04912345678904",
+      "expected": "https://a%17b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0017b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0018b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0018b",
+      "expected": "https://example.com/01/04912345678904?foo=a%18b"
+    },
+    {
+      "input": "https://a\u0018b@example.com/01/04912345678904",
+      "expected": "https://a%18b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0018b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u0019b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u0019b",
+      "expected": "https://example.com/01/04912345678904?foo=a%19b"
+    },
+    {
+      "input": "https://a\u0019b@example.com/01/04912345678904",
+      "expected": "https://a%19b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u0019b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u001ab",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u001ab",
+      "expected": "https://example.com/01/04912345678904?foo=a%1Ab"
+    },
+    {
+      "input": "https://a\u001ab@example.com/01/04912345678904",
+      "expected": "https://a%1Ab@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u001ab.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u001bb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u001bb",
+      "expected": "https://example.com/01/04912345678904?foo=a%1Bb"
+    },
+    {
+      "input": "https://a\u001bb@example.com/01/04912345678904",
+      "expected": "https://a%1Bb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u001bb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u001cb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u001cb",
+      "expected": "https://example.com/01/04912345678904?foo=a%1Cb"
+    },
+    {
+      "input": "https://a\u001cb@example.com/01/04912345678904",
+      "expected": "https://a%1Cb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u001cb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u001db",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u001db",
+      "expected": "https://example.com/01/04912345678904?foo=a%1Db"
+    },
+    {
+      "input": "https://a\u001db@example.com/01/04912345678904",
+      "expected": "https://a%1Db@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u001db.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u001eb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u001eb",
+      "expected": "https://example.com/01/04912345678904?foo=a%1Eb"
+    },
+    {
+      "input": "https://a\u001eb@example.com/01/04912345678904",
+      "expected": "https://a%1Eb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u001eb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u001fb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u001fb",
+      "expected": "https://example.com/01/04912345678904?foo=a%1Fb"
+    },
+    {
+      "input": "https://a\u001fb@example.com/01/04912345678904",
+      "expected": "https://a%1Fb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u001fb.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a b",
+      "expected": "https://example.com/01/04912345678904/10/a%20b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a b",
+      "expected": "https://example.com/01/04912345678904?foo=a+b"
+    },
+    {
+      "input": "https://a b@example.com/01/04912345678904",
+      "expected": "https://a%20b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a!b",
+      "expected": "https://example.com/01/04912345678904/10/a!b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a!b",
+      "expected": "https://example.com/01/04912345678904?foo=a%21b"
+    },
+    {
+      "input": "https://a!b@example.com/01/04912345678904",
+      "expected": "https://a!b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a!b.com/01/04912345678904",
+      "expected": "https://a!b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\"b",
+      "expected": "https://example.com/01/04912345678904/10/a%22b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\"b",
+      "expected": "https://example.com/01/04912345678904?foo=a%22b"
+    },
+    {
+      "input": "https://a\"b@example.com/01/04912345678904",
+      "expected": "https://a%22b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\"b.com/01/04912345678904",
+      "expected": "https://a\"b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a#b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a#b",
+      "expected": null
+    },
+    {
+      "input": "https://a#b@example.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://a#b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a$b",
+      "expected": "https://example.com/01/04912345678904/10/a%24b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a$b",
+      "expected": "https://example.com/01/04912345678904?foo=a%24b"
+    },
+    {
+      "input": "https://a$b@example.com/01/04912345678904",
+      "expected": "https://a$b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a$b.com/01/04912345678904",
+      "expected": "https://a$b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a%b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a%b",
+      "expected": null
+    },
+    {
+      "input": "https://a%b@example.com/01/04912345678904",
+      "expected": "https://a%b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a%b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a&b",
+      "expected": "https://example.com/01/04912345678904/10/a%26b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a&b",
+      "expected": "https://example.com/01/04912345678904?foo=a&b="
+    },
+    {
+      "input": "https://a&b@example.com/01/04912345678904",
+      "expected": "https://a&b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a&b.com/01/04912345678904",
+      "expected": "https://a&b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a'b",
+      "expected": "https://example.com/01/04912345678904/10/a'b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a'b",
+      "expected": "https://example.com/01/04912345678904?foo=a%27b"
+    },
+    {
+      "input": "https://a'b@example.com/01/04912345678904",
+      "expected": "https://a'b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a'b.com/01/04912345678904",
+      "expected": "https://a'b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a(b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a(b",
+      "expected": "https://example.com/01/04912345678904?foo=a%28b"
+    },
+    {
+      "input": "https://a(b@example.com/01/04912345678904",
+      "expected": "https://a(b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a(b.com/01/04912345678904",
+      "expected": "https://a(b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a)b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a)b",
+      "expected": "https://example.com/01/04912345678904?foo=a%29b"
+    },
+    {
+      "input": "https://a)b@example.com/01/04912345678904",
+      "expected": "https://a)b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a)b.com/01/04912345678904",
+      "expected": "https://a)b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a*b",
+      "expected": "https://example.com/01/04912345678904/10/a*b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a*b",
+      "expected": "https://example.com/01/04912345678904?foo=a*b"
+    },
+    {
+      "input": "https://a*b@example.com/01/04912345678904",
+      "expected": "https://a*b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a*b.com/01/04912345678904",
+      "expected": "https://a*b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a+b",
+      "expected": "https://example.com/01/04912345678904/10/a%2Bb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a+b",
+      "expected": "https://example.com/01/04912345678904?foo=a+b"
+    },
+    {
+      "input": "https://a+b@example.com/01/04912345678904",
+      "expected": "https://a+b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a+b.com/01/04912345678904",
+      "expected": "https://a+b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a,b",
+      "expected": "https://example.com/01/04912345678904/10/a%2Cb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a,b",
+      "expected": "https://example.com/01/04912345678904?foo=a%2Cb"
+    },
+    {
+      "input": "https://a,b@example.com/01/04912345678904",
+      "expected": "https://a,b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a,b.com/01/04912345678904",
+      "expected": "https://a,b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a-b",
+      "expected": "https://example.com/01/04912345678904/10/a-b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a-b",
+      "expected": "https://example.com/01/04912345678904?foo=a-b"
+    },
+    {
+      "input": "https://a-b@example.com/01/04912345678904",
+      "expected": "https://a-b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a-b.com/01/04912345678904",
+      "expected": "https://a-b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a.b",
+      "expected": "https://example.com/01/04912345678904/10/a.b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a.b",
+      "expected": "https://example.com/01/04912345678904?foo=a.b"
+    },
+    {
+      "input": "https://a.b@example.com/01/04912345678904",
+      "expected": "https://a.b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a.b.com/01/04912345678904",
+      "expected": "https://a.b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a/b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a/b",
+      "expected": "https://example.com/01/04912345678904?foo=a%2Fb"
+    },
+    {
+      "input": "https://a/b@example.com/01/04912345678904",
+      "expected": "https://a/b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a/b.com/01/04912345678904",
+      "expected": "https://a/b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a0b",
+      "expected": "https://example.com/01/04912345678904/10/a0b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a0b",
+      "expected": "https://example.com/01/04912345678904?foo=a0b"
+    },
+    {
+      "input": "https://a0b@example.com/01/04912345678904",
+      "expected": "https://a0b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a0b.com/01/04912345678904",
+      "expected": "https://a0b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a1b",
+      "expected": "https://example.com/01/04912345678904/10/a1b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a1b",
+      "expected": "https://example.com/01/04912345678904?foo=a1b"
+    },
+    {
+      "input": "https://a1b@example.com/01/04912345678904",
+      "expected": "https://a1b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a1b.com/01/04912345678904",
+      "expected": "https://a1b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a2b",
+      "expected": "https://example.com/01/04912345678904/10/a2b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a2b",
+      "expected": "https://example.com/01/04912345678904?foo=a2b"
+    },
+    {
+      "input": "https://a2b@example.com/01/04912345678904",
+      "expected": "https://a2b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a2b.com/01/04912345678904",
+      "expected": "https://a2b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a3b",
+      "expected": "https://example.com/01/04912345678904/10/a3b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a3b",
+      "expected": "https://example.com/01/04912345678904?foo=a3b"
+    },
+    {
+      "input": "https://a3b@example.com/01/04912345678904",
+      "expected": "https://a3b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a3b.com/01/04912345678904",
+      "expected": "https://a3b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a4b",
+      "expected": "https://example.com/01/04912345678904/10/a4b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a4b",
+      "expected": "https://example.com/01/04912345678904?foo=a4b"
+    },
+    {
+      "input": "https://a4b@example.com/01/04912345678904",
+      "expected": "https://a4b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a4b.com/01/04912345678904",
+      "expected": "https://a4b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a5b",
+      "expected": "https://example.com/01/04912345678904/10/a5b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a5b",
+      "expected": "https://example.com/01/04912345678904?foo=a5b"
+    },
+    {
+      "input": "https://a5b@example.com/01/04912345678904",
+      "expected": "https://a5b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a5b.com/01/04912345678904",
+      "expected": "https://a5b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a6b",
+      "expected": "https://example.com/01/04912345678904/10/a6b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a6b",
+      "expected": "https://example.com/01/04912345678904?foo=a6b"
+    },
+    {
+      "input": "https://a6b@example.com/01/04912345678904",
+      "expected": "https://a6b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a6b.com/01/04912345678904",
+      "expected": "https://a6b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a7b",
+      "expected": "https://example.com/01/04912345678904/10/a7b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a7b",
+      "expected": "https://example.com/01/04912345678904?foo=a7b"
+    },
+    {
+      "input": "https://a7b@example.com/01/04912345678904",
+      "expected": "https://a7b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a7b.com/01/04912345678904",
+      "expected": "https://a7b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a8b",
+      "expected": "https://example.com/01/04912345678904/10/a8b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a8b",
+      "expected": "https://example.com/01/04912345678904?foo=a8b"
+    },
+    {
+      "input": "https://a8b@example.com/01/04912345678904",
+      "expected": "https://a8b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a8b.com/01/04912345678904",
+      "expected": "https://a8b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a9b",
+      "expected": "https://example.com/01/04912345678904/10/a9b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a9b",
+      "expected": "https://example.com/01/04912345678904?foo=a9b"
+    },
+    {
+      "input": "https://a9b@example.com/01/04912345678904",
+      "expected": "https://a9b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a9b.com/01/04912345678904",
+      "expected": "https://a9b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a:b",
+      "expected": "https://example.com/01/04912345678904/10/a%3Ab"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a:b",
+      "expected": "https://example.com/01/04912345678904?foo=a%3Ab"
+    },
+    {
+      "input": "https://a:b@example.com/01/04912345678904",
+      "expected": "https://a:b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a:b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a;b",
+      "expected": "https://example.com/01/04912345678904/10/a%3Bb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a;b",
+      "expected": "https://example.com/01/04912345678904?foo=a%3Bb"
+    },
+    {
+      "input": "https://a;b@example.com/01/04912345678904",
+      "expected": "https://a%3Bb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a;b.com/01/04912345678904",
+      "expected": "https://a;b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a<b",
+      "expected": "https://example.com/01/04912345678904/10/a%3Cb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a<b",
+      "expected": "https://example.com/01/04912345678904?foo=a%3Cb"
+    },
+    {
+      "input": "https://a<b@example.com/01/04912345678904",
+      "expected": "https://a%3Cb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a<b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a=b",
+      "expected": "https://example.com/01/04912345678904/10/a%3Db"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a=b",
+      "expected": "https://example.com/01/04912345678904?foo=a%3Db"
+    },
+    {
+      "input": "https://a=b@example.com/01/04912345678904",
+      "expected": "https://a%3Db@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a=b.com/01/04912345678904",
+      "expected": "https://a=b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a>b",
+      "expected": "https://example.com/01/04912345678904/10/a%3Eb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a>b",
+      "expected": "https://example.com/01/04912345678904?foo=a%3Eb"
+    },
+    {
+      "input": "https://a>b@example.com/01/04912345678904",
+      "expected": "https://a%3Eb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a>b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a?b",
+      "expected": "https://example.com/01/04912345678904/10/a?b="
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a?b",
+      "expected": "https://example.com/01/04912345678904?foo=a%3Fb"
+    },
+    {
+      "input": "https://a?b@example.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://a?b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a@b",
+      "expected": "https://example.com/01/04912345678904/10/a%40b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a@b",
+      "expected": "https://example.com/01/04912345678904?foo=a%40b"
+    },
+    {
+      "input": "https://a@b@example.com/01/04912345678904",
+      "expected": "https://a%40b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a@b.com/01/04912345678904",
+      "expected": "https://a@b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aAb",
+      "expected": "https://example.com/01/04912345678904/10/aAb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aAb",
+      "expected": "https://example.com/01/04912345678904?foo=aAb"
+    },
+    {
+      "input": "https://aAb@example.com/01/04912345678904",
+      "expected": "https://aAb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aAb.com/01/04912345678904",
+      "expected": "https://aab.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aBb",
+      "expected": "https://example.com/01/04912345678904/10/aBb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aBb",
+      "expected": "https://example.com/01/04912345678904?foo=aBb"
+    },
+    {
+      "input": "https://aBb@example.com/01/04912345678904",
+      "expected": "https://aBb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aBb.com/01/04912345678904",
+      "expected": "https://abb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aCb",
+      "expected": "https://example.com/01/04912345678904/10/aCb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aCb",
+      "expected": "https://example.com/01/04912345678904?foo=aCb"
+    },
+    {
+      "input": "https://aCb@example.com/01/04912345678904",
+      "expected": "https://aCb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aCb.com/01/04912345678904",
+      "expected": "https://acb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aDb",
+      "expected": "https://example.com/01/04912345678904/10/aDb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aDb",
+      "expected": "https://example.com/01/04912345678904?foo=aDb"
+    },
+    {
+      "input": "https://aDb@example.com/01/04912345678904",
+      "expected": "https://aDb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aDb.com/01/04912345678904",
+      "expected": "https://adb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aEb",
+      "expected": "https://example.com/01/04912345678904/10/aEb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aEb",
+      "expected": "https://example.com/01/04912345678904?foo=aEb"
+    },
+    {
+      "input": "https://aEb@example.com/01/04912345678904",
+      "expected": "https://aEb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aEb.com/01/04912345678904",
+      "expected": "https://aeb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aFb",
+      "expected": "https://example.com/01/04912345678904/10/aFb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aFb",
+      "expected": "https://example.com/01/04912345678904?foo=aFb"
+    },
+    {
+      "input": "https://aFb@example.com/01/04912345678904",
+      "expected": "https://aFb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aFb.com/01/04912345678904",
+      "expected": "https://afb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aGb",
+      "expected": "https://example.com/01/04912345678904/10/aGb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aGb",
+      "expected": "https://example.com/01/04912345678904?foo=aGb"
+    },
+    {
+      "input": "https://aGb@example.com/01/04912345678904",
+      "expected": "https://aGb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aGb.com/01/04912345678904",
+      "expected": "https://agb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aHb",
+      "expected": "https://example.com/01/04912345678904/10/aHb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aHb",
+      "expected": "https://example.com/01/04912345678904?foo=aHb"
+    },
+    {
+      "input": "https://aHb@example.com/01/04912345678904",
+      "expected": "https://aHb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aHb.com/01/04912345678904",
+      "expected": "https://ahb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aIb",
+      "expected": "https://example.com/01/04912345678904/10/aIb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aIb",
+      "expected": "https://example.com/01/04912345678904?foo=aIb"
+    },
+    {
+      "input": "https://aIb@example.com/01/04912345678904",
+      "expected": "https://aIb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aIb.com/01/04912345678904",
+      "expected": "https://aib.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aJb",
+      "expected": "https://example.com/01/04912345678904/10/aJb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aJb",
+      "expected": "https://example.com/01/04912345678904?foo=aJb"
+    },
+    {
+      "input": "https://aJb@example.com/01/04912345678904",
+      "expected": "https://aJb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aJb.com/01/04912345678904",
+      "expected": "https://ajb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aKb",
+      "expected": "https://example.com/01/04912345678904/10/aKb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aKb",
+      "expected": "https://example.com/01/04912345678904?foo=aKb"
+    },
+    {
+      "input": "https://aKb@example.com/01/04912345678904",
+      "expected": "https://aKb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aKb.com/01/04912345678904",
+      "expected": "https://akb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aLb",
+      "expected": "https://example.com/01/04912345678904/10/aLb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aLb",
+      "expected": "https://example.com/01/04912345678904?foo=aLb"
+    },
+    {
+      "input": "https://aLb@example.com/01/04912345678904",
+      "expected": "https://aLb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aLb.com/01/04912345678904",
+      "expected": "https://alb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aMb",
+      "expected": "https://example.com/01/04912345678904/10/aMb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aMb",
+      "expected": "https://example.com/01/04912345678904?foo=aMb"
+    },
+    {
+      "input": "https://aMb@example.com/01/04912345678904",
+      "expected": "https://aMb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aMb.com/01/04912345678904",
+      "expected": "https://amb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aNb",
+      "expected": "https://example.com/01/04912345678904/10/aNb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aNb",
+      "expected": "https://example.com/01/04912345678904?foo=aNb"
+    },
+    {
+      "input": "https://aNb@example.com/01/04912345678904",
+      "expected": "https://aNb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aNb.com/01/04912345678904",
+      "expected": "https://anb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aOb",
+      "expected": "https://example.com/01/04912345678904/10/aOb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aOb",
+      "expected": "https://example.com/01/04912345678904?foo=aOb"
+    },
+    {
+      "input": "https://aOb@example.com/01/04912345678904",
+      "expected": "https://aOb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aOb.com/01/04912345678904",
+      "expected": "https://aob.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aPb",
+      "expected": "https://example.com/01/04912345678904/10/aPb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aPb",
+      "expected": "https://example.com/01/04912345678904?foo=aPb"
+    },
+    {
+      "input": "https://aPb@example.com/01/04912345678904",
+      "expected": "https://aPb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aPb.com/01/04912345678904",
+      "expected": "https://apb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aQb",
+      "expected": "https://example.com/01/04912345678904/10/aQb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aQb",
+      "expected": "https://example.com/01/04912345678904?foo=aQb"
+    },
+    {
+      "input": "https://aQb@example.com/01/04912345678904",
+      "expected": "https://aQb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aQb.com/01/04912345678904",
+      "expected": "https://aqb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aRb",
+      "expected": "https://example.com/01/04912345678904/10/aRb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aRb",
+      "expected": "https://example.com/01/04912345678904?foo=aRb"
+    },
+    {
+      "input": "https://aRb@example.com/01/04912345678904",
+      "expected": "https://aRb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aRb.com/01/04912345678904",
+      "expected": "https://arb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aSb",
+      "expected": "https://example.com/01/04912345678904/10/aSb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aSb",
+      "expected": "https://example.com/01/04912345678904?foo=aSb"
+    },
+    {
+      "input": "https://aSb@example.com/01/04912345678904",
+      "expected": "https://aSb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aSb.com/01/04912345678904",
+      "expected": "https://asb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aTb",
+      "expected": "https://example.com/01/04912345678904/10/aTb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aTb",
+      "expected": "https://example.com/01/04912345678904?foo=aTb"
+    },
+    {
+      "input": "https://aTb@example.com/01/04912345678904",
+      "expected": "https://aTb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aTb.com/01/04912345678904",
+      "expected": "https://atb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aUb",
+      "expected": "https://example.com/01/04912345678904/10/aUb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aUb",
+      "expected": "https://example.com/01/04912345678904?foo=aUb"
+    },
+    {
+      "input": "https://aUb@example.com/01/04912345678904",
+      "expected": "https://aUb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aUb.com/01/04912345678904",
+      "expected": "https://aub.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aVb",
+      "expected": "https://example.com/01/04912345678904/10/aVb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aVb",
+      "expected": "https://example.com/01/04912345678904?foo=aVb"
+    },
+    {
+      "input": "https://aVb@example.com/01/04912345678904",
+      "expected": "https://aVb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aVb.com/01/04912345678904",
+      "expected": "https://avb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aWb",
+      "expected": "https://example.com/01/04912345678904/10/aWb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aWb",
+      "expected": "https://example.com/01/04912345678904?foo=aWb"
+    },
+    {
+      "input": "https://aWb@example.com/01/04912345678904",
+      "expected": "https://aWb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aWb.com/01/04912345678904",
+      "expected": "https://awb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aXb",
+      "expected": "https://example.com/01/04912345678904/10/aXb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aXb",
+      "expected": "https://example.com/01/04912345678904?foo=aXb"
+    },
+    {
+      "input": "https://aXb@example.com/01/04912345678904",
+      "expected": "https://aXb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aXb.com/01/04912345678904",
+      "expected": "https://axb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aYb",
+      "expected": "https://example.com/01/04912345678904/10/aYb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aYb",
+      "expected": "https://example.com/01/04912345678904?foo=aYb"
+    },
+    {
+      "input": "https://aYb@example.com/01/04912345678904",
+      "expected": "https://aYb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aYb.com/01/04912345678904",
+      "expected": "https://ayb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aZb",
+      "expected": "https://example.com/01/04912345678904/10/aZb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aZb",
+      "expected": "https://example.com/01/04912345678904?foo=aZb"
+    },
+    {
+      "input": "https://aZb@example.com/01/04912345678904",
+      "expected": "https://aZb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aZb.com/01/04912345678904",
+      "expected": "https://azb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a[b",
+      "expected": "https://example.com/01/04912345678904/10/a%5Bb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a[b",
+      "expected": "https://example.com/01/04912345678904?foo=a%5Bb"
+    },
+    {
+      "input": "https://a[b@example.com/01/04912345678904",
+      "expected": "https://a%5Bb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a[b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\\b",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\\b",
+      "expected": "https://example.com/01/04912345678904?foo=a%5Cb"
+    },
+    {
+      "input": "https://a\\b@example.com/01/04912345678904",
+      "expected": "https://a/b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\\b.com/01/04912345678904",
+      "expected": "https://a/b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a]b",
+      "expected": "https://example.com/01/04912345678904/10/a%5Db"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a]b",
+      "expected": "https://example.com/01/04912345678904?foo=a%5Db"
+    },
+    {
+      "input": "https://a]b@example.com/01/04912345678904",
+      "expected": "https://a%5Db@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a]b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a^b",
+      "expected": "https://example.com/01/04912345678904/10/a%5Eb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a^b",
+      "expected": "https://example.com/01/04912345678904?foo=a%5Eb"
+    },
+    {
+      "input": "https://a^b@example.com/01/04912345678904",
+      "expected": "https://a%5Eb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a^b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a_b",
+      "expected": "https://example.com/01/04912345678904/10/a_b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a_b",
+      "expected": "https://example.com/01/04912345678904?foo=a_b"
+    },
+    {
+      "input": "https://a_b@example.com/01/04912345678904",
+      "expected": "https://a_b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a_b.com/01/04912345678904",
+      "expected": "https://a_b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a`b",
+      "expected": "https://example.com/01/04912345678904/10/a%60b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a`b",
+      "expected": "https://example.com/01/04912345678904?foo=a%60b"
+    },
+    {
+      "input": "https://a`b@example.com/01/04912345678904",
+      "expected": "https://a%60b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a`b.com/01/04912345678904",
+      "expected": "https://a`b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aab",
+      "expected": "https://example.com/01/04912345678904/10/aab"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aab",
+      "expected": "https://example.com/01/04912345678904?foo=aab"
+    },
+    {
+      "input": "https://aab@example.com/01/04912345678904",
+      "expected": "https://aab@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aab.com/01/04912345678904",
+      "expected": "https://aab.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/abb",
+      "expected": "https://example.com/01/04912345678904/10/abb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=abb",
+      "expected": "https://example.com/01/04912345678904?foo=abb"
+    },
+    {
+      "input": "https://abb@example.com/01/04912345678904",
+      "expected": "https://abb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://abb.com/01/04912345678904",
+      "expected": "https://abb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/acb",
+      "expected": "https://example.com/01/04912345678904/10/acb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=acb",
+      "expected": "https://example.com/01/04912345678904?foo=acb"
+    },
+    {
+      "input": "https://acb@example.com/01/04912345678904",
+      "expected": "https://acb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://acb.com/01/04912345678904",
+      "expected": "https://acb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/adb",
+      "expected": "https://example.com/01/04912345678904/10/adb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=adb",
+      "expected": "https://example.com/01/04912345678904?foo=adb"
+    },
+    {
+      "input": "https://adb@example.com/01/04912345678904",
+      "expected": "https://adb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://adb.com/01/04912345678904",
+      "expected": "https://adb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aeb",
+      "expected": "https://example.com/01/04912345678904/10/aeb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aeb",
+      "expected": "https://example.com/01/04912345678904?foo=aeb"
+    },
+    {
+      "input": "https://aeb@example.com/01/04912345678904",
+      "expected": "https://aeb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aeb.com/01/04912345678904",
+      "expected": "https://aeb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/afb",
+      "expected": "https://example.com/01/04912345678904/10/afb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=afb",
+      "expected": "https://example.com/01/04912345678904?foo=afb"
+    },
+    {
+      "input": "https://afb@example.com/01/04912345678904",
+      "expected": "https://afb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://afb.com/01/04912345678904",
+      "expected": "https://afb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/agb",
+      "expected": "https://example.com/01/04912345678904/10/agb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=agb",
+      "expected": "https://example.com/01/04912345678904?foo=agb"
+    },
+    {
+      "input": "https://agb@example.com/01/04912345678904",
+      "expected": "https://agb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://agb.com/01/04912345678904",
+      "expected": "https://agb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/ahb",
+      "expected": "https://example.com/01/04912345678904/10/ahb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=ahb",
+      "expected": "https://example.com/01/04912345678904?foo=ahb"
+    },
+    {
+      "input": "https://ahb@example.com/01/04912345678904",
+      "expected": "https://ahb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://ahb.com/01/04912345678904",
+      "expected": "https://ahb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aib",
+      "expected": "https://example.com/01/04912345678904/10/aib"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aib",
+      "expected": "https://example.com/01/04912345678904?foo=aib"
+    },
+    {
+      "input": "https://aib@example.com/01/04912345678904",
+      "expected": "https://aib@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aib.com/01/04912345678904",
+      "expected": "https://aib.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/ajb",
+      "expected": "https://example.com/01/04912345678904/10/ajb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=ajb",
+      "expected": "https://example.com/01/04912345678904?foo=ajb"
+    },
+    {
+      "input": "https://ajb@example.com/01/04912345678904",
+      "expected": "https://ajb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://ajb.com/01/04912345678904",
+      "expected": "https://ajb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/akb",
+      "expected": "https://example.com/01/04912345678904/10/akb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=akb",
+      "expected": "https://example.com/01/04912345678904?foo=akb"
+    },
+    {
+      "input": "https://akb@example.com/01/04912345678904",
+      "expected": "https://akb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://akb.com/01/04912345678904",
+      "expected": "https://akb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/alb",
+      "expected": "https://example.com/01/04912345678904/10/alb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=alb",
+      "expected": "https://example.com/01/04912345678904?foo=alb"
+    },
+    {
+      "input": "https://alb@example.com/01/04912345678904",
+      "expected": "https://alb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://alb.com/01/04912345678904",
+      "expected": "https://alb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/amb",
+      "expected": "https://example.com/01/04912345678904/10/amb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=amb",
+      "expected": "https://example.com/01/04912345678904?foo=amb"
+    },
+    {
+      "input": "https://amb@example.com/01/04912345678904",
+      "expected": "https://amb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://amb.com/01/04912345678904",
+      "expected": "https://amb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/anb",
+      "expected": "https://example.com/01/04912345678904/10/anb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=anb",
+      "expected": "https://example.com/01/04912345678904?foo=anb"
+    },
+    {
+      "input": "https://anb@example.com/01/04912345678904",
+      "expected": "https://anb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://anb.com/01/04912345678904",
+      "expected": "https://anb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aob",
+      "expected": "https://example.com/01/04912345678904/10/aob"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aob",
+      "expected": "https://example.com/01/04912345678904?foo=aob"
+    },
+    {
+      "input": "https://aob@example.com/01/04912345678904",
+      "expected": "https://aob@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aob.com/01/04912345678904",
+      "expected": "https://aob.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/apb",
+      "expected": "https://example.com/01/04912345678904/10/apb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=apb",
+      "expected": "https://example.com/01/04912345678904?foo=apb"
+    },
+    {
+      "input": "https://apb@example.com/01/04912345678904",
+      "expected": "https://apb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://apb.com/01/04912345678904",
+      "expected": "https://apb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aqb",
+      "expected": "https://example.com/01/04912345678904/10/aqb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aqb",
+      "expected": "https://example.com/01/04912345678904?foo=aqb"
+    },
+    {
+      "input": "https://aqb@example.com/01/04912345678904",
+      "expected": "https://aqb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aqb.com/01/04912345678904",
+      "expected": "https://aqb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/arb",
+      "expected": "https://example.com/01/04912345678904/10/arb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=arb",
+      "expected": "https://example.com/01/04912345678904?foo=arb"
+    },
+    {
+      "input": "https://arb@example.com/01/04912345678904",
+      "expected": "https://arb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://arb.com/01/04912345678904",
+      "expected": "https://arb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/asb",
+      "expected": "https://example.com/01/04912345678904/10/asb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=asb",
+      "expected": "https://example.com/01/04912345678904?foo=asb"
+    },
+    {
+      "input": "https://asb@example.com/01/04912345678904",
+      "expected": "https://asb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://asb.com/01/04912345678904",
+      "expected": "https://asb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/atb",
+      "expected": "https://example.com/01/04912345678904/10/atb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=atb",
+      "expected": "https://example.com/01/04912345678904?foo=atb"
+    },
+    {
+      "input": "https://atb@example.com/01/04912345678904",
+      "expected": "https://atb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://atb.com/01/04912345678904",
+      "expected": "https://atb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/aub",
+      "expected": "https://example.com/01/04912345678904/10/aub"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=aub",
+      "expected": "https://example.com/01/04912345678904?foo=aub"
+    },
+    {
+      "input": "https://aub@example.com/01/04912345678904",
+      "expected": "https://aub@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://aub.com/01/04912345678904",
+      "expected": "https://aub.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/avb",
+      "expected": "https://example.com/01/04912345678904/10/avb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=avb",
+      "expected": "https://example.com/01/04912345678904?foo=avb"
+    },
+    {
+      "input": "https://avb@example.com/01/04912345678904",
+      "expected": "https://avb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://avb.com/01/04912345678904",
+      "expected": "https://avb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/awb",
+      "expected": "https://example.com/01/04912345678904/10/awb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=awb",
+      "expected": "https://example.com/01/04912345678904?foo=awb"
+    },
+    {
+      "input": "https://awb@example.com/01/04912345678904",
+      "expected": "https://awb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://awb.com/01/04912345678904",
+      "expected": "https://awb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/axb",
+      "expected": "https://example.com/01/04912345678904/10/axb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=axb",
+      "expected": "https://example.com/01/04912345678904?foo=axb"
+    },
+    {
+      "input": "https://axb@example.com/01/04912345678904",
+      "expected": "https://axb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://axb.com/01/04912345678904",
+      "expected": "https://axb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/ayb",
+      "expected": "https://example.com/01/04912345678904/10/ayb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=ayb",
+      "expected": "https://example.com/01/04912345678904?foo=ayb"
+    },
+    {
+      "input": "https://ayb@example.com/01/04912345678904",
+      "expected": "https://ayb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://ayb.com/01/04912345678904",
+      "expected": "https://ayb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/azb",
+      "expected": "https://example.com/01/04912345678904/10/azb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=azb",
+      "expected": "https://example.com/01/04912345678904?foo=azb"
+    },
+    {
+      "input": "https://azb@example.com/01/04912345678904",
+      "expected": "https://azb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://azb.com/01/04912345678904",
+      "expected": "https://azb.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a{b",
+      "expected": "https://example.com/01/04912345678904/10/a%7Bb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a{b",
+      "expected": "https://example.com/01/04912345678904?foo=a%7Bb"
+    },
+    {
+      "input": "https://a{b@example.com/01/04912345678904",
+      "expected": "https://a%7Bb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a{b.com/01/04912345678904",
+      "expected": "https://a{b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a|b",
+      "expected": "https://example.com/01/04912345678904/10/a%7Cb"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a|b",
+      "expected": "https://example.com/01/04912345678904?foo=a%7Cb"
+    },
+    {
+      "input": "https://a|b@example.com/01/04912345678904",
+      "expected": "https://a%7Cb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a|b.com/01/04912345678904",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a}b",
+      "expected": "https://example.com/01/04912345678904/10/a%7Db"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a}b",
+      "expected": "https://example.com/01/04912345678904?foo=a%7Db"
+    },
+    {
+      "input": "https://a}b@example.com/01/04912345678904",
+      "expected": "https://a%7Db@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a}b.com/01/04912345678904",
+      "expected": "https://a}b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a~b",
+      "expected": "https://example.com/01/04912345678904/10/a~b"
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a~b",
+      "expected": "https://example.com/01/04912345678904?foo=a%7Eb"
+    },
+    {
+      "input": "https://a~b@example.com/01/04912345678904",
+      "expected": "https://a~b@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a~b.com/01/04912345678904",
+      "expected": "https://a~b.com/01/04912345678904"
+    },
+    {
+      "input": "https://example.com/01/04912345678904/10/a\u007fb",
+      "expected": null
+    },
+    {
+      "input": "https://example.com/01/04912345678904?foo=a\u007fb",
+      "expected": "https://example.com/01/04912345678904?foo=a%7Fb"
+    },
+    {
+      "input": "https://a\u007fb@example.com/01/04912345678904",
+      "expected": "https://a%7Fb@example.com/01/04912345678904"
+    },
+    {
+      "input": "https://a\u007fb.com/01/04912345678904",
+      "expected": null
+    }
+  ]
+}

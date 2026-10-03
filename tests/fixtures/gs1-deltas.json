@@ -1,0 +1,194 @@
+{
+  "format_version": 1,
+  "upstream_repository": "https://github.com/SpecQR/SpecQR",
+  "upstream_commit": "15ad15e5c770ea0e39072f8f88b2733018f02ffd",
+  "fixture_count": 1411,
+  "unchanged_outcome_count": 1405,
+  "intentional_difference_count": 6,
+  "accepted_to_rejected_count": 5,
+  "diagnostic_only_count": 1,
+  "comparison_contract": "Exact success payloads and metadata, validation status, diagnostic codes/reasons/counts; diagnostic English wording and optional diagnostic details are not compatibility promises. All fixtures are executed; none are skipped. Case IDs are zero-based fixture indices.",
+  "differences": [
+    {
+      "case_id": 1155,
+      "operation": "linkCreate",
+      "category": "dot-payload-preservation",
+      "reason": "Reject dot segments after a GS1 primary instead of silently deleting path payload. Dot-valued qualifiers can be retained in the query.",
+      "input": null,
+      "elements": [
+        {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        {
+          "ai": "10",
+          "value": "."
+        }
+      ],
+      "options": {
+        "baseUrl": "https://example.com/stem"
+      },
+      "upstream_expected": "https://example.com/stem/01/04912345678904/10/",
+      "python_expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; use path_ais=() to place these values in the query"
+        }
+      }
+    },
+    {
+      "case_id": 1157,
+      "operation": "linkCreate",
+      "category": "dot-payload-preservation",
+      "reason": "Reject dot segments after a GS1 primary instead of silently deleting path payload. Dot-valued qualifiers can be retained in the query.",
+      "input": null,
+      "elements": [
+        {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        {
+          "ai": "10",
+          "value": ".."
+        }
+      ],
+      "options": {
+        "baseUrl": "https://example.com/stem"
+      },
+      "upstream_expected": "https://example.com/stem/01/04912345678904/",
+      "python_expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; use path_ais=() to place these values in the query"
+        }
+      }
+    },
+    {
+      "case_id": 1374,
+      "operation": "linkValidate",
+      "category": "dot-payload-preservation",
+      "reason": "Reject dot segments after a GS1 primary instead of silently deleting path payload. Dot-valued qualifiers can be retained in the query.",
+      "input": "https://example.com/01/04912345678904/10/%2e",
+      "elements": null,
+      "options": null,
+      "upstream_expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_INPUT",
+            "message": "GS1 Digital Link path must contain AI/value pairs",
+            "reason": "malformed-path",
+            "expected": "Digital Link path containing primary AI and AI/value pairs"
+          }
+        ],
+        "warnings": []
+      },
+      "python_expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "case_id": 1376,
+      "operation": "linkParse",
+      "category": "dot-payload-preservation",
+      "reason": "Reject dot segments after a GS1 primary instead of silently deleting path payload. Dot-valued qualifiers can be retained in the query.",
+      "input": "https://example.com/01/04912345678904/10/%2E%2e",
+      "elements": null,
+      "options": null,
+      "upstream_expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      },
+      "python_expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "case_id": 1377,
+      "operation": "linkValidate",
+      "category": "dot-payload-preservation",
+      "reason": "Reject dot segments after a GS1 primary instead of silently deleting path payload. Dot-valued qualifiers can be retained in the query.",
+      "input": "https://example.com/01/04912345678904/10/%2E%2e",
+      "elements": null,
+      "options": null,
+      "upstream_expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      },
+      "python_expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "case_id": 1378,
+      "operation": "linkNormalize",
+      "category": "dot-payload-preservation",
+      "reason": "Reject dot segments after a GS1 primary instead of silently deleting path payload. Dot-valued qualifiers can be retained in the query.",
+      "input": "https://example.com/01/04912345678904/10/%2E%2e",
+      "elements": null,
+      "options": null,
+      "upstream_expected": "https://example.com/01/04912345678904",
+      "python_expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    }
+  ]
+}
