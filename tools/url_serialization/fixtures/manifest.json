@@ -1,0 +1,22 @@
+{
+  "referenceCommit": "16efc6c0a8e397c9df3d051d20fce6c1eebdfad7",
+  "referenceTree": "ca4c2360a7dc0950c1bfd1f76e44616bcd406023",
+  "baselineCommit": "69bc9d3257f7e86d5b07328437f4da9f95b4c843",
+  "baselineTree": "c7dabc3da52c4d1304737d58ff5f783558a5b845",
+  "restoredOutputIds": [
+    1460,
+    1461,
+    1465
+  ],
+  "intentionalNativeIdnaIds": [
+    1498
+  ],
+  "sha256": {
+    "gs1-upstream.json": "e12c7a2e6ed9ae26cc9865caab9e6e0a7dbeb62438a903a3f5611d6420c865e2",
+    "contracts.json.gz": "3d31017070768f5b6de435a17f24910ad0c89c41eed2c80d7aa2a22f2ca06469",
+    "published-python1499.json.gz": "4f29732c52a75960c5c3ddf4d1b91979c1d7845bbb57e5e67654a178a0b115d1",
+    "current-ts-gs1-shared49.json": "a7d568cb2a63ff28695b132c1028c8d7ca898cca0e813316ff6b454fecc447e1",
+    "approved-restorations80.json": "08f1e5ae4b2d49163e85ed95507090f4b409924e4ce1d553f092a4efa5ddcd3c",
+    "current-ts-gs1-1411.json.gz": "c2e0678be740d935306353ae15c0e5f80a444a641351b070f5126be81057021b"
+  }
+}

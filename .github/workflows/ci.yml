@@ -61,12 +61,16 @@ jobs:
         run: python tools/conformance/verify_decoders.py --decoder cpp --dependency-dir .tools/zxing-cpp
       - name: ZXing Java strict detection and metadata
         run: python tools/conformance/verify_decoders.py --decoder java --dependency-dir .tools/zxing-java
+      - name: Current TS URL contracts and strict native preservation
+        run: python tools/url_serialization/verify.py
       - name: Preserve verification reports
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: independent-reports
-          path: artifacts/*.json
+          path: |
+            artifacts/*.json
+            artifacts/url-serialization.*
           if-no-files-found: error
   required:
     name: All required checks

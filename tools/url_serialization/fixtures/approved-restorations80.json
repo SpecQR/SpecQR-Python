@@ -1,0 +1,2145 @@
+{
+  "schemaVersion": 1,
+  "scope": "Approved restoration target, independently derived from pinned current TypeScript output. Not a runtime pass.",
+  "source": {
+    "repository": "https://github.com/SpecQR/SpecQR",
+    "commit": "16efc6c0a8e397c9df3d051d20fce6c1eebdfad7",
+    "tree": "ca4c2360a7dc0950c1bfd1f76e44616bcd406023",
+    "toolchain": "Node.js v24.19.0",
+    "oracleHarness": "verification/gs1/current_ts_oracle.mjs",
+    "oracleHarnessSha256": "cf4b5b393a909bbae33cee250420d9997cff742fd1607c1746e91e6a4ff02b33",
+    "sourceHashes": {
+      "src/gs1/ai-dictionary.js": "c483742e13e98f08bc461b4223502be9542e7043bc02031af3bb31a3def93099",
+      "src/gs1/ai.js": "482f443c5b485173038ebea945a5c7d524efce87e2cd9c5595361494ceccea95",
+      "src/gs1/check-digit.js": "5a3fafa1ef032d5a2603c094f34563026d577b6b926b7ffefaef36fc00ec93ce",
+      "src/gs1/digital-link.js": "a4ea3059c7fa63fc5c099fa5bc1915e59cbfd8f103fe19120397787c49b5eb7a",
+      "src/gs1/element-string.js": "441beb66197dd872186314a619b3cf8a04ad9956fef70e618a03d0b7bfe835cd",
+      "src/gs1/index.js": "0b3d54b9dc1d1dd0343ba77b8e6c7e7e07bca96353fd42a5c98c8e0052947c8d",
+      "src/gs1/parser.js": "5572e92815a5f3c3bb7aad67fabcfd0b2aa34085d12c7baef0a1cee123bcf9ef",
+      "src/gs1/validation.js": "44e1321ab549f4d050816305b0a201e6d4396418dfe1c9d0de6675d6d6fc1368",
+      "src/gs1/validator.js": "3482cab601f09d9b7dde94198c0f886c843c7d7f4018541388cc388fc993d64a",
+      "src/gs1.js": "8caa34a2eb6acfb24d5c46f8559fbd0a96dc0109d69a1789fbe74203a2290833"
+    },
+    "rawOracleOutputSha256": "c6dfdc272f9daf1e289ecfde2f27b1c5752fb0647baab571ee80eeeb254b0988"
+  },
+  "historicalFixtureSha256": "e12c7a2e6ed9ae26cc9865caab9e6e0a7dbeb62438a903a3f5611d6420c865e2",
+  "currentTsOracleArtifact": "current-ts-gs1-1411.json.gz",
+  "currentTsOracleArtifactSha256": "c2e0678be740d935306353ae15c0e5f80a444a641351b070f5126be81057021b",
+  "caseCount": 80,
+  "cases": [
+    {
+      "caseId": 925,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904#"
+      },
+      "requestSha256": "699d6698e42f991e0d443a47d08832d58a9d6e8133f73f40d02d922cb6c28ae9",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 926,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904#",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "2b2e0063d0a79de782a9fc48f3b91dce33bce2bfcf24872464c67f2f3482422d",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 928,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904#"
+      },
+      "requestSha256": "691c8a04d83d07a3dc18ed6f0a294599110c11f277b14274d68b9fe9c642f9e7",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 929,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904#",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "3844e79210c4f27b9bcdde31a9506792066478b42298f9fd1e91dddfa66e0f43",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 931,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904#"
+      },
+      "requestSha256": "671b402bd3708bbf3d30c666bb4f335610bc3f09e0db0dce4074523bc3a8425b",
+      "expected": "https://example.com/01/04912345678904"
+    },
+    {
+      "caseId": 932,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904#",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "1af80dd2d5404d2ee05026e3e10773f194a59907e7e9d36091a54f965263a19c",
+      "expected": "https://example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1033,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkParse",
+        "input": "https:example.com/01/04912345678904"
+      },
+      "requestSha256": "242f49ccc651bd936e8c59cb5e362c56050dc40549d83bd3c3fc0a895c5a9160",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1034,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkParse",
+        "input": "https:example.com/01/04912345678904",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "491eb7775d742ace3bd8b8efdc412606bbec6eb777ff4596edd489f30ebc2de4",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1036,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkValidate",
+        "input": "https:example.com/01/04912345678904"
+      },
+      "requestSha256": "7e569eb632cee4672e55daa0cd598e9bb529a81617dac4331a05b6a9deb09387",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1037,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkValidate",
+        "input": "https:example.com/01/04912345678904",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "d3a153c12e127ec2fdf5d8027558643a4f8d7cbaa1cb14e7e752f8a73b2aff2e",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1039,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https:example.com/01/04912345678904"
+      },
+      "requestSha256": "7a1242e6f6193e711095e59851ee31f8dc0ca36e14a253b1a9ba6fb8263863e8",
+      "expected": "https://example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1040,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https:example.com/01/04912345678904",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "1bd3ae4b811684a64401963ded83b287764ea896d09e7f73f22e9e83076ab349",
+      "expected": "https://example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1051,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://user:pass@EXAMPLE.com:443/stem/01/04912345678904"
+      },
+      "requestSha256": "75d75c4154f227a413078035455ce3d6a6dc618cb14419d1428be1de2eec06fd",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1052,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://user:pass@EXAMPLE.com:443/stem/01/04912345678904",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "07f21ef0466a7d23fd1c93cdf4877650fa94039b7d52e8b6b7df6c4a51b55699",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1054,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://user:pass@EXAMPLE.com:443/stem/01/04912345678904"
+      },
+      "requestSha256": "db6047a747fa77c31ea9238391e579ccc0aa0cfc8e17c732551c49e04a9ea06d",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1055,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://user:pass@EXAMPLE.com:443/stem/01/04912345678904",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "82b82dcbbadcce2db28d7fe5efb7424d9079812083167bb0f98e4a7528d06490",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1057,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://user:pass@EXAMPLE.com:443/stem/01/04912345678904"
+      },
+      "requestSha256": "6b69c82374b8db8e1a3f76cbe1042d092c5314663927168b4a4780dcb54213c7",
+      "expected": "https://user:pass@example.com/stem/01/04912345678904"
+    },
+    {
+      "caseId": 1058,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://user:pass@EXAMPLE.com:443/stem/01/04912345678904",
+        "options": {
+          "unknownQuery": "reject"
+        }
+      },
+      "requestSha256": "9ebd56819821aa98bc373fedef5ebccef288c864d58223a2e5514d65ccb55f92",
+      "expected": "https://user:pass@example.com/stem/01/04912345678904"
+    },
+    {
+      "caseId": 1097,
+      "operation": "linkCreate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-base-query",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "ABC123"
+          },
+          {
+            "ai": "17",
+            "value": "251231"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com?"
+        }
+      },
+      "requestSha256": "f044ff62dee7370a2990abad086ac702d174058a0788682e4c8bc9fb076f8866",
+      "expected": "https://example.com/01/04912345678904/10/ABC123?17=251231"
+    },
+    {
+      "caseId": 1098,
+      "operation": "linkCreate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-base-query",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "ABC123"
+          },
+          {
+            "ai": "17",
+            "value": "251231"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com?",
+          "pathAis": []
+        }
+      },
+      "requestSha256": "1ec9526e90a6ac32a23e80fbb672b7d0d7235a58829c9833713786fed00580ca",
+      "expected": "https://example.com/01/04912345678904?10=ABC123&17=251231"
+    },
+    {
+      "caseId": 1099,
+      "operation": "linkCreate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-base-query",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "ABC123"
+          },
+          {
+            "ai": "17",
+            "value": "251231"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com?",
+          "pathAis": [
+            "21"
+          ]
+        }
+      },
+      "requestSha256": "e70109506ddb81ba2bd105b336e9de88db9d6b4c56c2f04b661d5870ccbc2e33",
+      "expected": "https://example.com/01/04912345678904?10=ABC123&17=251231"
+    },
+    {
+      "caseId": 1100,
+      "operation": "linkCreate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-base-query",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "ABC123"
+          },
+          {
+            "ai": "17",
+            "value": "251231"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com?",
+          "pathAis": [
+            "01",
+            "10"
+          ]
+        }
+      },
+      "requestSha256": "94f857d770ae651b9ed087f1e4aa89e14cb938e8620ad698d2156db90a259b7d",
+      "expected": "https://example.com/01/04912345678904/10/ABC123?17=251231"
+    },
+    {
+      "caseId": 1104,
+      "operation": "linkCreate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "ABC123"
+          },
+          {
+            "ai": "17",
+            "value": "251231"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com#"
+        }
+      },
+      "requestSha256": "178b51353119c47550880e4380b2a238bc9a45cba1199ea916b58a795c704c03",
+      "expected": "https://example.com/01/04912345678904/10/ABC123?17=251231#"
+    },
+    {
+      "caseId": 1105,
+      "operation": "linkCreate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "ABC123"
+          },
+          {
+            "ai": "17",
+            "value": "251231"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com#",
+          "pathAis": []
+        }
+      },
+      "requestSha256": "34625b881773406e2ff52bbd6a0d79a24b8c6dfc9ea8b898c0f8e942607b162f",
+      "expected": "https://example.com/01/04912345678904?10=ABC123&17=251231#"
+    },
+    {
+      "caseId": 1106,
+      "operation": "linkCreate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "ABC123"
+          },
+          {
+            "ai": "17",
+            "value": "251231"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com#",
+          "pathAis": [
+            "21"
+          ]
+        }
+      },
+      "requestSha256": "2a1427e8d66b4f287494b32e8c1dfcad216ad9fe7b903969a0d57f074a36d35f",
+      "expected": "https://example.com/01/04912345678904?10=ABC123&17=251231#"
+    },
+    {
+      "caseId": 1107,
+      "operation": "linkCreate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-fragment",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "ABC123"
+          },
+          {
+            "ai": "17",
+            "value": "251231"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com#",
+          "pathAis": [
+            "01",
+            "10"
+          ]
+        }
+      },
+      "requestSha256": "dacfef0b4526789944d47c54f7854159e00295adb200aa54ae7a29a4abaeb04f",
+      "expected": "https://example.com/01/04912345678904/10/ABC123?17=251231#"
+    },
+    {
+      "caseId": 1181,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://127.1/01/04912345678904"
+      },
+      "requestSha256": "b57f7150a6701c20f5a2e06b23c7b8b4e874b0f217b2a66b01dbb4841b65dc00",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1182,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://127.1/01/04912345678904"
+      },
+      "requestSha256": "bea06ab67aa2341aa9e7650f37336abe336d44129afb7aeb1db7fa0f874dc079",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1183,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://127.1/01/04912345678904"
+      },
+      "requestSha256": "c88ed8da46da870665b48ff664899c67b7a2686ce33110c1c78e2107724ac00b",
+      "expected": "https://127.0.0.1/01/04912345678904"
+    },
+    {
+      "caseId": 1184,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://0x7f.1/01/04912345678904"
+      },
+      "requestSha256": "debbb9c2b64a0b63c8d6e4934d14dcc4a956aeb75225bf8f22adabb48b5dc1a2",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1185,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://0x7f.1/01/04912345678904"
+      },
+      "requestSha256": "e557ffc2c33af06b4a69ed76336c93fb73b1c68c406d9eea6262d7e356f0f9b0",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1186,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://0x7f.1/01/04912345678904"
+      },
+      "requestSha256": "a7bf6bc0065a83f0b6ba70f7ac288bf3b0097e72edce6808f9947b0b1dc082f0",
+      "expected": "https://127.0.0.1/01/04912345678904"
+    },
+    {
+      "caseId": 1187,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://0177.0.0.1/01/04912345678904"
+      },
+      "requestSha256": "b3422d09f28ff0f435c07cc24edc539db2fa190b9de2ca292d296114bf4407ab",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1188,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://0177.0.0.1/01/04912345678904"
+      },
+      "requestSha256": "cbc04f04105fb5e72dfaadd78a37b018da22478b419798aba0db8e094ba11609",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1189,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://0177.0.0.1/01/04912345678904"
+      },
+      "requestSha256": "eaf25f803a434f9c66cee6f263385b7036a23096d04beaf0130ae039169910e7",
+      "expected": "https://127.0.0.1/01/04912345678904"
+    },
+    {
+      "caseId": 1190,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://2130706433/01/04912345678904"
+      },
+      "requestSha256": "a5d205315063278f0406aa5af3dcfc5724f3c5401ab3ee3c0f8bebd9b47b63e0",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1191,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://2130706433/01/04912345678904"
+      },
+      "requestSha256": "9763277174a7b509fc86674a8431c81e4139620704669b97019ceed510fc8b1d",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1192,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://2130706433/01/04912345678904"
+      },
+      "requestSha256": "f9e1017082f121e3642c5faaa7f13dffc19f62cb0df52ce00c735e90defc4b53",
+      "expected": "https://127.0.0.1/01/04912345678904"
+    },
+    {
+      "caseId": 1201,
+      "operation": "linkNormalize",
+      "originalCategory": "normalization/data-result",
+      "originalBucket": "ipv6-text-preservation",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://[0:0:0:0:0:0:0:1]/01/04912345678904"
+      },
+      "requestSha256": "4191fef46d81a5e083b5624e8dadced7d95bda82e0835c79c8b10415fca705b4",
+      "expected": "https://[::1]/01/04912345678904"
+    },
+    {
+      "caseId": 1204,
+      "operation": "linkNormalize",
+      "originalCategory": "normalization/data-result",
+      "originalBucket": "ipv6-text-preservation",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://[2001:0db8:0:0:1:0:0:1]/01/04912345678904"
+      },
+      "requestSha256": "bec74832f191b808c589875e51da89fbcb663a3183876354d828029c5bae144b",
+      "expected": "https://[2001:db8::1:0:0:1]/01/04912345678904"
+    },
+    {
+      "caseId": 1217,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://%65xample.com/01/04912345678904"
+      },
+      "requestSha256": "8cbd2ac70724402cb072eecbfab87ea29bc4707a2aa29cd17b79f19743b87e88",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1218,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://%65xample.com/01/04912345678904"
+      },
+      "requestSha256": "9039bb8becac90a0197447f3f98c503737f6e42953af90ca79a243c1ce9573c7",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1219,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://%65xample.com/01/04912345678904"
+      },
+      "requestSha256": "8c4327c9ce41ed943426eba989381737439fd7042bcb418e753fa33f7f4f199a",
+      "expected": "https://example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1223,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://exa_mple.com/01/04912345678904"
+      },
+      "requestSha256": "91f66d2561422d4fbbe8a71534515b53d6fc2f9c9e22bf89d056cb9bfbdbde66",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1224,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://exa_mple.com/01/04912345678904"
+      },
+      "requestSha256": "c82b28b7a9bc32e1a001a46dd9d691c522b548207b31458bc70a9f351e0c1da8",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1225,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://exa_mple.com/01/04912345678904"
+      },
+      "requestSha256": "c64379abb7af83595dcbca7972890cd1fc0d8b7d17d8a7d76c1f1a4d9df6be29",
+      "expected": "https://exa_mple.com/01/04912345678904"
+    },
+    {
+      "caseId": 1226,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://user:pass@example.com/01/04912345678904"
+      },
+      "requestSha256": "cd96c10777659c439869a27eacd40664c9fe13ead81df122ed7a6ac7cca6aa54",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1227,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://user:pass@example.com/01/04912345678904"
+      },
+      "requestSha256": "0c6c4f9953f59fe97b84d53667c1e28fa79fa426739cedf21feaf7d830a95ce3",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1228,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://user:pass@example.com/01/04912345678904"
+      },
+      "requestSha256": "8b52fe63e5d0ab1922083f931a638a925d9aff8a18b9347cda4dfa3c84f47611",
+      "expected": "https://user:pass@example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1229,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://user%20x:pa%23ss@example.com/01/04912345678904"
+      },
+      "requestSha256": "eda41adf4a6d111e1a7847e24195699e4375b7e296c10406dbf4fb9937c87e3e",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1230,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://user%20x:pa%23ss@example.com/01/04912345678904"
+      },
+      "requestSha256": "96d45f0fbd336931284d43d15541c2036c29f78acaa058ad0703b0dff6edc72c",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1231,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://user%20x:pa%23ss@example.com/01/04912345678904"
+      },
+      "requestSha256": "4403f9def6973356b64286d4f79eb9bcae68639f296a35cd33d7e17226cdf2e8",
+      "expected": "https://user%20x:pa%23ss@example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1232,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://user:p@ss@example.com/01/04912345678904"
+      },
+      "requestSha256": "d84f5bfabf2f2781bcbe453d894216829ace230905ecfc8196e2992aa59f997a",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1233,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://user:p@ss@example.com/01/04912345678904"
+      },
+      "requestSha256": "b5644174824fc81b150fb37ddb553ca33234adc97f32715b5aea6cc777ed5ed5",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1234,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://user:p@ss@example.com/01/04912345678904"
+      },
+      "requestSha256": "bd81bf53b87853684f81e2aa3648033f47c291cb24ccdcb4a1c4450dc4085e7b",
+      "expected": "https://user:p%40ss@example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1235,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://0x+1/01/04912345678904"
+      },
+      "requestSha256": "2e2d74ce6d95d2a0acd55b46a389717c50179c01894a100e3fde46967ad29952",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1236,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://0x+1/01/04912345678904"
+      },
+      "requestSha256": "3b8b7aab8f094f671adabb94798b858fe32db32c932e36e7fe03f73d3e1e7eb5",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1237,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://0x+1/01/04912345678904"
+      },
+      "requestSha256": "038f2ed266822ea0b12e83af71952976d32a8ffc98fad24883786ea122bc48be",
+      "expected": "https://0x+1/01/04912345678904"
+    },
+    {
+      "caseId": 1238,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://0+7/01/04912345678904"
+      },
+      "requestSha256": "7bf2ed2868aace16bc73f3fa01135b0ac47e32f8842d7b9959d930a68719ccc7",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1239,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://0+7/01/04912345678904"
+      },
+      "requestSha256": "9f8c4fcd38fe37d65061ca189e29e198dd53df5a92c152bfdba02bc86c4ad448",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1240,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://0+7/01/04912345678904"
+      },
+      "requestSha256": "7fd000f67968d8c9cfd9027dc2fa30d180410143a5de1569d80cc3c9e548e5f9",
+      "expected": "https://0+7/01/04912345678904"
+    },
+    {
+      "caseId": 1253,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://0x/01/04912345678904"
+      },
+      "requestSha256": "cc3c08d0b7d8a81eda7cbe087ea37e82c2a2b547f685e347c2f861495a10eb0e",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1254,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://0x/01/04912345678904"
+      },
+      "requestSha256": "b03fe9d47d8c73293f5aaf717bcec3792ad4acd5cd2c3ba9f9aa10de5179e5d6",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1255,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://0x/01/04912345678904"
+      },
+      "requestSha256": "8c07ac816748a4a369b8ff92f89d494c11987b0815880721f2ce00123aa3f715",
+      "expected": "https://0.0.0.0/01/04912345678904"
+    },
+    {
+      "caseId": 1262,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https://127.0.0.1./01/04912345678904"
+      },
+      "requestSha256": "e84cd4577088260b09b2e3913023ef5d786e0be97e1d6e7d87869ec0e5c63cc0",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1263,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://127.0.0.1./01/04912345678904"
+      },
+      "requestSha256": "c25384e6f86f4b0f23cebd734ca70f24ad308ff90604673d03077dc5b239ff54",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1264,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://127.0.0.1./01/04912345678904"
+      },
+      "requestSha256": "4a9c79e0d3c29a6cf9835b5ce9f05d8c65d48ae9bf2c8d5686d44d282341b6c3",
+      "expected": "https://127.0.0.1/01/04912345678904"
+    },
+    {
+      "caseId": 1279,
+      "operation": "linkNormalize",
+      "originalCategory": "normalization/data-result",
+      "originalBucket": "ipv6-text-preservation",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://[::ffff:192.168.1.1]/01/04912345678904"
+      },
+      "requestSha256": "d75e563008901335c58869219fb24100162410d4c35909b1fa0b7ce3dcfe5457",
+      "expected": "https://[::ffff:c0a8:101]/01/04912345678904"
+    },
+    {
+      "caseId": 1292,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-raw-whitespace",
+      "request": {
+        "op": "linkParse",
+        "input": " https://example.com/01/04912345678904"
+      },
+      "requestSha256": "6496c049acf7fcfa413b3802b9500f8c416f6337b919de2f557f0c246131dda5",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1293,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-raw-whitespace",
+      "request": {
+        "op": "linkValidate",
+        "input": " https://example.com/01/04912345678904"
+      },
+      "requestSha256": "73b36ad671e7e03405cbc362ce9f5aa60af5326b1eee1f8e05a8b76f6e26c561",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1294,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-raw-whitespace",
+      "request": {
+        "op": "linkNormalize",
+        "input": " https://example.com/01/04912345678904"
+      },
+      "requestSha256": "cee4e4d389aab96e4c13ce2f1b97b65a0da872d1e27a0924a9cea5a6ff231208",
+      "expected": "https://example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1298,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkParse",
+        "input": "https:////example.com/01/04912345678904"
+      },
+      "requestSha256": "7fd8479050f9d08c25970763eaba4efa0d348324cd77be61eb72f31ca3f54969",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1299,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkValidate",
+        "input": "https:////example.com/01/04912345678904"
+      },
+      "requestSha256": "693a709081fabd832c5db64be407684e51d772e32ece089a9291a234eaf754f7",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1300,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-authority",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https:////example.com/01/04912345678904"
+      },
+      "requestSha256": "eecb93b149248184480998e80fd358ecabfc78d27652459633c68ce055dafc94",
+      "expected": "https://example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1301,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkParse",
+        "input": "https:/example.com/01/04912345678904"
+      },
+      "requestSha256": "caa4608a8afd72db93f1e95afa974aa42d835dd73134b1916cb24065a39ae726",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "caseId": 1302,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkValidate",
+        "input": "https:/example.com/01/04912345678904"
+      },
+      "requestSha256": "bfb3c43c3b6e73cfe6e20eead3de079dc6160c1e35d0663bc63a4469c58b385c",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "caseId": 1303,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-absolute-uri",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https:/example.com/01/04912345678904"
+      },
+      "requestSha256": "04a8721666ef8b2812fcb5b015629b7b92ac01d890cd094bbf40634e3bcebfba",
+      "expected": "https://example.com/01/04912345678904"
+    },
+    {
+      "caseId": 1349,
+      "operation": "linkParse",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-raw-whitespace",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904?foo=a\\tb"
+      },
+      "requestSha256": "16627a0b26609e693b087494774962baf283a88fe1e987ee20780de580b7c37b",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": [
+          {
+            "key": "foo",
+            "value": "a\\tb"
+          }
+        ]
+      }
+    },
+    {
+      "caseId": 1350,
+      "operation": "linkValidate",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-raw-whitespace",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904?foo=a\\tb"
+      },
+      "requestSha256": "f985f72cd4dfd0b56feada9147c60b32cc6dc691d15d8742ee3bf8e03d9f8897",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": [
+            {
+              "key": "foo",
+              "value": "a\\tb"
+            }
+          ]
+        },
+        "warnings": [
+          {
+            "code": "GS1_DIGITAL_LINK_UNKNOWN_QUERY_PRESERVED",
+            "message": "GS1 Digital Link URI contains non-GS1 query parameters preserved in unknownQuery.",
+            "reason": "unknown-query-preserved",
+            "count": 1
+          }
+        ]
+      }
+    },
+    {
+      "caseId": 1351,
+      "operation": "linkNormalize",
+      "originalCategory": "accepted-to-rejected",
+      "originalBucket": "strict-raw-whitespace",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904?foo=a\\tb"
+      },
+      "requestSha256": "230de2e013784315f83a1e366580b0dd31ab21ca52b8be48039df3578bbe842e",
+      "expected": "https://example.com/01/04912345678904?foo=a%5Ctb"
+    }
+  ]
+}

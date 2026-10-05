@@ -128,3 +128,15 @@ Unicode のホストラベルには、WHATWG の新しい UTS #46 処理では�
 - さらに 512 件の ASCII URL oracle は、U+0000–U+007F の各文字を、パス値、未知クエリ値、credentials、ホスト名に含めた場合を網羅します。固定した JavaScript 実装から直接生成し、試験実行時は Node に依存せず照合します。
 
 パッケージをインストールした環境で `python -m unittest discover -s tests -p test_gs1.py` を実行してください。チェックアウトしたソースを使う場合は `PYTHONPATH=src` を設定します。
+
+### 2026-10-05 prefix caret compatibility
+
+生成時の base path と正規化時の prefix にある `^` を `%5E` として出力します。
+既存の `%5E` は二重 encoding せず保持します。通常の QR encoding、GS1 payload、
+query / credentials の escaping と実行時依存関係は変更しません。
+
+元の 1,411 request、80 positive、49 shared case と 39 追加 case は、固定した
+TypeScript `16efc6c0a8e397c9df3d051d20fce6c1eebdfad7` と公開済み Python
+`69bc9d3257f7e86d5b07328437f4da9f95b4c843` の独立出力に結び付けています。
+三つの caret 出力だけを更新し、既存の native diagnostic と上記 IDNA2003 差分を保持します。
+この範囲は WHATWG / UTS46 完全準拠の追加ではありません。

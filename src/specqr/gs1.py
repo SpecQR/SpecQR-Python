@@ -518,7 +518,7 @@ def _usv(value: str) -> str:
 
 
 def _encode_url_part(value: str, *, query: bool = False) -> str:
-    forbidden = '\"#\'<> ' if query else '\"#<>?`{} '
+    forbidden = '\"#\'<> ' if query else '\"#<>?^`{} '
     # quote would normalize '~' and other sets. Keep the WHATWG subset explicit.
     return "".join(f"%{byte:02X}" if byte <= 32 or byte > 126 or chr(byte) in forbidden else chr(byte)
                    for byte in _usv(value).encode("utf-8"))

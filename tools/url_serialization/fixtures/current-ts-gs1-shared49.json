@@ -1,0 +1,1141 @@
+{
+  "schemaVersion": 1,
+  "scope": "All seven historical authority vectors and all existing shared Digital Link preservation vectors; authoritative current TypeScript complete positive and negative outputs.",
+  "currentTypeScript": {
+    "repository": "https://github.com/SpecQR/SpecQR",
+    "commit": "16efc6c0a8e397c9df3d051d20fce6c1eebdfad7",
+    "tree": "ca4c2360a7dc0950c1bfd1f76e44616bcd406023",
+    "toolchain": "Node.js v24.19.0",
+    "oracleHarness": "verification/gs1/current_ts_oracle.mjs",
+    "oracleHarnessSha256": "cf4b5b393a909bbae33cee250420d9997cff742fd1607c1746e91e6a4ff02b33",
+    "sourceHashes": {
+      "src/gs1/ai-dictionary.js": "c483742e13e98f08bc461b4223502be9542e7043bc02031af3bb31a3def93099",
+      "src/gs1/ai.js": "482f443c5b485173038ebea945a5c7d524efce87e2cd9c5595361494ceccea95",
+      "src/gs1/check-digit.js": "5a3fafa1ef032d5a2603c094f34563026d577b6b926b7ffefaef36fc00ec93ce",
+      "src/gs1/digital-link.js": "a4ea3059c7fa63fc5c099fa5bc1915e59cbfd8f103fe19120397787c49b5eb7a",
+      "src/gs1/element-string.js": "441beb66197dd872186314a619b3cf8a04ad9956fef70e618a03d0b7bfe835cd",
+      "src/gs1/index.js": "0b3d54b9dc1d1dd0343ba77b8e6c7e7e07bca96353fd42a5c98c8e0052947c8d",
+      "src/gs1/parser.js": "5572e92815a5f3c3bb7aad67fabcfd0b2aa34085d12c7baef0a1cee123bcf9ef",
+      "src/gs1/validation.js": "44e1321ab549f4d050816305b0a201e6d4396418dfe1c9d0de6675d6d6fc1368",
+      "src/gs1/validator.js": "3482cab601f09d9b7dde94198c0f886c843c7d7f4018541388cc388fc993d64a",
+      "src/gs1.js": "8caa34a2eb6acfb24d5c46f8559fbd0a96dc0109d69a1789fbe74203a2290833"
+    },
+    "rawOracleOutputSha256": "c6dfdc272f9daf1e289ecfde2f27b1c5752fb0647baab571ee80eeeb254b0988"
+  },
+  "sourceFixtures": {
+    "strict-authority-vectors.json": "7095233243f44eee485bfdad7a67845321b4aa041c87238ca68854788aba298c",
+    "cross-port-regressions.json": "0b32b6d0d345e954533bbe29a43537c4a055f31898a158c08a2d2d631b7eda59"
+  },
+  "oracleInputSha256": "ac86aec6732ecca6e27e4c3b952b58c36efc5446d953f0e500218d8ccc70cca4",
+  "oracleOutputSha256": "6928b661d9d871c6c68224a2936d2c53b4d1cc22dc112b252122f1294f193254",
+  "caseCount": 49,
+  "cases": [
+    {
+      "id": "bare-hex-ipv4-1:linkParse",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-1",
+      "request": {
+        "op": "linkParse",
+        "input": "https://0x/01/09506000134352"
+      },
+      "requestSha256": "8b0d790984702b55d8056bbe9d992409bdc58a9a3fbe5068c76320714ec0cb26",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "09506000134352"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-1:linkValidate",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-1",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://0x/01/09506000134352"
+      },
+      "requestSha256": "4771437ad06bbd7de59db94e96834e03e49fbfc25b7634722029b0ccc0c02913",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "09506000134352"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-1:linkNormalize",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-1",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://0x/01/09506000134352"
+      },
+      "requestSha256": "9bd96627c51c5588b03a8318334ff5147083d2022347f873bff3965d31e96be4",
+      "expected": "https://0.0.0.0/01/09506000134352"
+    },
+    {
+      "id": "bare-hex-ipv4-2:linkParse",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-2",
+      "request": {
+        "op": "linkParse",
+        "input": "https://0X/01/09506000134352"
+      },
+      "requestSha256": "67023868520d46ee371af3c4336c666e9bd662de21e438db2c64ffe9329cf88f",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "09506000134352"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-2:linkValidate",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-2",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://0X/01/09506000134352"
+      },
+      "requestSha256": "75d230b8e5e6159a25609b815a4e7e61dddb9871f2dd2455f42383466d198942",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "09506000134352"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-2:linkNormalize",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-2",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://0X/01/09506000134352"
+      },
+      "requestSha256": "ab7be93af17c399698d61c762a6ed7b006fe84c5f7dfb6ff330f7ed6c4cf40d8",
+      "expected": "https://0.0.0.0/01/09506000134352"
+    },
+    {
+      "id": "bare-hex-ipv4-3:linkParse",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-3",
+      "request": {
+        "op": "linkParse",
+        "input": "https://1.0x/01/09506000134352"
+      },
+      "requestSha256": "321ef6ead04e5e3ecfc300eceb4f68de8b6edb22d4b0059150c753116994a2f2",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "09506000134352"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-3:linkValidate",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-3",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://1.0x/01/09506000134352"
+      },
+      "requestSha256": "e37e7c5e2a86fc9221afbe512976c20b26167f32ea7c17a091f75b1280b8782b",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "09506000134352"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-3:linkNormalize",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-3",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://1.0x/01/09506000134352"
+      },
+      "requestSha256": "b10e9c42d4282ed102ccae0115457c66b556f5eee13913dd6b55a17c8f2904ab",
+      "expected": "https://1.0.0.0/01/09506000134352"
+    },
+    {
+      "id": "bare-hex-ipv4-4:linkParse",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-4",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.0x/01/09506000134352"
+      },
+      "requestSha256": "3fb122ac92c820ef82e2844d0da9ef16f7c57b630407c67de003d09e6372ed03",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link URI must be an absolute http or https URL"
+        }
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-4:linkValidate",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-4",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.0x/01/09506000134352"
+      },
+      "requestSha256": "9bc5683d171e6c573d661746ac4989976601fe481732a16de47d1911c3a264c2",
+      "expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_DIGITAL_LINK_INVALID_URI",
+            "message": "GS1 Digital Link URI must be an absolute http or https URL",
+            "reason": "invalid-uri",
+            "expected": "absolute http or https URL"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-4:linkNormalize",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-4",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.0x/01/09506000134352"
+      },
+      "requestSha256": "b8f3a8c759f50214e449aa0827d9c1f7da4931f21ba6846f76486c4af72868ef",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link URI must be an absolute http or https URL"
+        }
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-5:linkParse",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-5",
+      "request": {
+        "op": "linkParse",
+        "input": "https://0x./01/09506000134352"
+      },
+      "requestSha256": "228ad441fde4f32dae0d3d61386a6b883570cf1300157b0497ce7a9cfa19edac",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "09506000134352"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-5:linkValidate",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-5",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://0x./01/09506000134352"
+      },
+      "requestSha256": "07cc95620afa33c6120df50debf23d519d4ec99ac4132d5077bd1bf951bea1ef",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "09506000134352"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-5:linkNormalize",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-5",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://0x./01/09506000134352"
+      },
+      "requestSha256": "ee7f161d0067e0df5be4304c6ef3570fd56b37a42f7d2bc735364b35e573fca1",
+      "expected": "https://0.0.0.0/01/09506000134352"
+    },
+    {
+      "id": "bare-hex-ipv4-6:linkParse",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-6",
+      "request": {
+        "op": "linkParse",
+        "input": "https://1.0X/01/09506000134352"
+      },
+      "requestSha256": "5e55d542c5fc75e2b8592e62558ee675b6394396a3e78635da20ac68602ec067",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "09506000134352"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-6:linkValidate",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-6",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://1.0X/01/09506000134352"
+      },
+      "requestSha256": "02969f0b9fdccaad9adc40b138e325ceb3aba1cb5296851a6ac6c107d02d4ff9",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "09506000134352"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-6:linkNormalize",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-6",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://1.0X/01/09506000134352"
+      },
+      "requestSha256": "92afc16cb4e7792c1fe8bfce2e0dfd3b9626ef585480489ed4a0e359e4bed407",
+      "expected": "https://1.0.0.0/01/09506000134352"
+    },
+    {
+      "id": "bare-hex-ipv4-7:linkParse",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-7",
+      "request": {
+        "op": "linkParse",
+        "input": "https://1.2.3.0x/01/09506000134352"
+      },
+      "requestSha256": "916fd1753bd0938a5065824d3a0b494d2362409d6ab2b73eea2d6ac361494dae",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "09506000134352"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "09506000134352"
+          }
+        ],
+        "queryElements": [],
+        "unknownQuery": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-7:linkValidate",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-7",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://1.2.3.0x/01/09506000134352"
+      },
+      "requestSha256": "02f40af7ac4371d183ad5068454656103ac087914a713feba2ab65e8d46f57e6",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "09506000134352"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "09506000134352"
+            }
+          ],
+          "queryElements": [],
+          "unknownQuery": []
+        },
+        "warnings": []
+      }
+    },
+    {
+      "id": "bare-hex-ipv4-7:linkNormalize",
+      "sourceFixture": "strict-authority-vectors.json",
+      "sourceCaseId": "bare-hex-ipv4-7",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://1.2.3.0x/01/09506000134352"
+      },
+      "requestSha256": "14607d184a715518383edd573fc485d2c9eda93804cef532b11f8df22906b032",
+      "expected": "https://1.2.3.0/01/09506000134352"
+    },
+    {
+      "id": "builder-dot-path:linkCreate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "builder-dot-path",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "."
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com"
+        }
+      },
+      "requestSha256": "8e46be959a762fec81a075f1e650552e1e236fe748110537a7470e62f0e52caa",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; use pathAis: [] to place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "builder-parent-path:linkCreate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "builder-parent-path",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": ".."
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com"
+        }
+      },
+      "requestSha256": "18e7429111bb73b1b8327787f74bc62eee60917f579599e0eea8e4fcca976a51",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; use pathAis: [] to place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-0:linkParse",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-0",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904/10/."
+      },
+      "requestSha256": "a971c93f070dcc702acf2ff385d071c0178f605d6bc748372818c7d2e11d8a50",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-0:linkValidate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-0",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904/10/."
+      },
+      "requestSha256": "96344d1fc6d8e49dac3f41b74f179a47ed4c21f25054888403a16cda3f940fe4",
+      "expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "raw-dot-0:linkNormalize",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-0",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904/10/."
+      },
+      "requestSha256": "cfb0c295b2088b2fcacf8955dbc1d72fa5a98de401a1b5fabee880c37031360d",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-1:linkParse",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-1",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904/10/.."
+      },
+      "requestSha256": "0b0b457e3cec2a257da9766f1968a0b00fb394868e45ee7a6b6bcff43dbacc59",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-1:linkValidate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-1",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904/10/.."
+      },
+      "requestSha256": "75d9c4c291cffdb1740a8f45642df12a130ff33e85a520cd7c9bbfb89dd90b8d",
+      "expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "raw-dot-1:linkNormalize",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-1",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904/10/.."
+      },
+      "requestSha256": "0891f34bbf48f5755bf7f6768b3139264676ef587b3ca4960115a0c661b180a9",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-2:linkParse",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-2",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904/10/%2e"
+      },
+      "requestSha256": "de8fa5f890b35190ddfcdcd09c5a2ecd071e6f7a863028e42280388271ca1c9e",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-2:linkValidate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-2",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904/10/%2e"
+      },
+      "requestSha256": "c38346fc3619cb1d80436c02f3b0793f110f1111a98ac33d702e4f24f314ec51",
+      "expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "raw-dot-2:linkNormalize",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-2",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904/10/%2e"
+      },
+      "requestSha256": "efbd90b79e62efb48f0567a0e8519114d72c30284b339819c617979578438feb",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-3:linkParse",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-3",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904/10/%2E%2e"
+      },
+      "requestSha256": "37d84b75cea273a1cd1fd5d1d265bea55cdfb38a5e4a6bb151c3d005203da454",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-3:linkValidate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-3",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904/10/%2E%2e"
+      },
+      "requestSha256": "8795e9bbd49507683f8515b52f3fdaf0800cb573e45d89ee1cbbddbdd6afe4e5",
+      "expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "raw-dot-3:linkNormalize",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-3",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904/10/%2E%2e"
+      },
+      "requestSha256": "409a569c9db6be3e796aae96e115cacbbeb5dc977bed8476b4b8aa7ef949efa1",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-4:linkParse",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-4",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904/10/.%2E"
+      },
+      "requestSha256": "7de5b91b307e772c560d6fe700804b0eb8f11f686947bd44674fc885311dc779",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-4:linkValidate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-4",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904/10/.%2E"
+      },
+      "requestSha256": "01416534e92fb3cbb13babe0dd9e8d0bf67ece0df3099878bb0585a8d173b822",
+      "expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "raw-dot-4:linkNormalize",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-4",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904/10/.%2E"
+      },
+      "requestSha256": "b6a1b9f87a5afaf8b9f8f9b9e6527f0d9e3ca7fda85e3b570126269936191ca2",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-5:linkParse",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-5",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904/10/%2e."
+      },
+      "requestSha256": "cf5843a9d49419306b2c07abf2806295154ce13adce43a0def5ff372d8b72942",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "raw-dot-5:linkValidate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-5",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904/10/%2e."
+      },
+      "requestSha256": "4c57cc53456d61bec5bfe4cdf530befe07ff96b748aad345805d1bcd1208bca1",
+      "expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "raw-dot-5:linkNormalize",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "raw-dot-5",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904/10/%2e."
+      },
+      "requestSha256": "b690caa5c5d64a5b33e49f5523eea462049267c759b04874694fe5af6130fa41",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "erased-first-primary:linkParse",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "erased-first-primary",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/./../01/04912345678904"
+      },
+      "requestSha256": "ac72d7ebb80fc836c46e6d3ec88ac520d96ab88a5c295629a64ca26b4076d355",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "erased-first-primary:linkValidate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "erased-first-primary",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/./../01/04912345678904"
+      },
+      "requestSha256": "408600eae8324c5d079c2b574c04df715490488c7f027d64d76ed47caf28b342",
+      "expected": {
+        "ok": false,
+        "errors": [
+          {
+            "code": "GS1_INVALID_DIGITAL_LINK_PLACEMENT",
+            "message": "GS1 Digital Link path values must not be dot segments; place these values in the query",
+            "reason": "invalid-digital-link-placement"
+          }
+        ],
+        "warnings": []
+      }
+    },
+    {
+      "id": "erased-first-primary:linkNormalize",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "erased-first-primary",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/./../01/04912345678904"
+      },
+      "requestSha256": "3495518e7963048eb0294e49dc034cca7cd9da436703e7292f4e67592cb798ca",
+      "expected": {
+        "throws": {
+          "code": "INVALID_GS1",
+          "message": "GS1 Digital Link path values must not be dot segments; place these values in the query"
+        }
+      }
+    },
+    {
+      "id": "query-dot-preservation:linkParse",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "query-dot-preservation",
+      "request": {
+        "op": "linkParse",
+        "input": "https://example.com/01/04912345678904?10=..&21=.&utm=a&utm=b"
+      },
+      "requestSha256": "bbc8f8ae6d8d8b2a9ae6e29d51acd290248cc2b8bc5ceedea959ce2cfa42a545",
+      "expected": {
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": ".."
+          },
+          {
+            "ai": "21",
+            "value": "."
+          }
+        ],
+        "primary": {
+          "ai": "01",
+          "value": "04912345678904"
+        },
+        "pathElements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "queryElements": [
+          {
+            "ai": "10",
+            "value": ".."
+          },
+          {
+            "ai": "21",
+            "value": "."
+          }
+        ],
+        "unknownQuery": [
+          {
+            "key": "utm",
+            "value": "a"
+          },
+          {
+            "key": "utm",
+            "value": "b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "query-dot-preservation:linkValidate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "query-dot-preservation",
+      "request": {
+        "op": "linkValidate",
+        "input": "https://example.com/01/04912345678904?10=..&21=.&utm=a&utm=b"
+      },
+      "requestSha256": "945133d3a39bb3a6fb7c6fffdf634c3eb82fe04a84990bc22588afaf1e9b0295",
+      "expected": {
+        "ok": true,
+        "result": {
+          "elements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            },
+            {
+              "ai": "10",
+              "value": ".."
+            },
+            {
+              "ai": "21",
+              "value": "."
+            }
+          ],
+          "primary": {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          "pathElements": [
+            {
+              "ai": "01",
+              "value": "04912345678904"
+            }
+          ],
+          "queryElements": [
+            {
+              "ai": "10",
+              "value": ".."
+            },
+            {
+              "ai": "21",
+              "value": "."
+            }
+          ],
+          "unknownQuery": [
+            {
+              "key": "utm",
+              "value": "a"
+            },
+            {
+              "key": "utm",
+              "value": "b"
+            }
+          ]
+        },
+        "warnings": [
+          {
+            "code": "GS1_DIGITAL_LINK_UNKNOWN_QUERY_PRESERVED",
+            "message": "GS1 Digital Link URI contains non-GS1 query parameters preserved in unknownQuery.",
+            "reason": "unknown-query-preserved",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "query-dot-preservation:linkNormalize",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "query-dot-preservation",
+      "request": {
+        "op": "linkNormalize",
+        "input": "https://example.com/01/04912345678904?10=..&21=.&utm=a&utm=b"
+      },
+      "requestSha256": "b6cc74df1b13c0a0905a2da1aca6207cd1fdc79315584eca8ea40bd49d51e837",
+      "expected": "https://example.com/01/04912345678904?10=..&21=.&utm=a&utm=b"
+    },
+    {
+      "id": "literal-percent2e-value:linkCreate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "literal-percent2e-value",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          },
+          {
+            "ai": "10",
+            "value": "%2e"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com"
+        }
+      },
+      "requestSha256": "6e4145ec97de4bc1a447c14854e805c1df94e035a6dffa634c64867436c2965f",
+      "expected": "https://example.com/01/04912345678904/10/%252e"
+    },
+    {
+      "id": "safe-base-normalization:linkCreate",
+      "sourceFixture": "cross-port-regressions.json",
+      "sourceCaseId": "safe-base-normalization",
+      "request": {
+        "op": "linkCreate",
+        "elements": [
+          {
+            "ai": "01",
+            "value": "04912345678904"
+          }
+        ],
+        "options": {
+          "baseUrl": "https://example.com/a/../b"
+        }
+      },
+      "requestSha256": "310400c76e3493f69dd76506c9ad146e69a9588126bd42cc1141726844b68fe9",
+      "expected": "https://example.com/b/01/04912345678904"
+    }
+  ]
+}
